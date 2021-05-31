@@ -8,10 +8,10 @@
 
 puts "cleaning database..."
 User.destroy_all
-# Ghost.destroy_all
+Ghost.destroy_all
 
 puts "creating users..."
-10.times do
+20.times do
   user = User.create!(
   name: Faker::Name.name,
   email: Faker::Internet.email,
@@ -20,16 +20,20 @@ puts "creating users..."
   puts "created #{user.name}"
 end
 
-# puts "creating ghosts..."
-# 10.times do
-#   ghost = Ghost.create!(
-#   name: Faker::Name.name,
-#   description: Faker::Lorem.paragraph,
-#   category: %w(good friendly evil pranky helpful).sample,
-#   age: rand(200..700),
-#   rate: rand(50..200),
-#   location: Faker::Address.street_address
-#   )
-#   puts "created #{ghost.name}"
-# end
+puts "creating ghosts..."
+user_array = User.all.sample(10)
+user_array.each do |user|
+  ghost = Ghost.new(
+  name: Faker::Name.name,
+  description: Faker::Lorem.paragraph,
+  category: %w(good friendly evil pranky helpful).sample,
+  age: rand(200..700),
+  rate: rand(50..200),
+  location: Faker::Address.street_address
+  )
+  ghost.user = user
+  ghost.save!
+  puts "created #{ghost.name}"
+end
+
 puts "finished!"
