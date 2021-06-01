@@ -9,32 +9,36 @@
     <h1>Ghost</h1>
     <div class="card-ghost">
         <img src=https://images.unsplash.com/photo-1583638666708-5ba77a6f8bd1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Z2hvc3R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"/>
+        <a class="btn btn-flat" href="#">Book now</a>
         <div class="card-ghost-infos">
       <div>
-        <h2>Ghost Name</h2>
+        <h2><%= @ghost.name %></h2>
+        <h3><%= @ghost.location %></h3>
+        <p><%= @ghost.description %></p>
         <p>Paragraph about Ghost here!</p>
       </div>
-        <h2 class="card-ghost-pricing">£99.99</h2>
+        <h2 class="card-ghost-pricing">£ <%= @ghost.rate %></h2>
         <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-ghost-user avatar-bordered" />
       </div>
     </div>
 
+
     <div>
-      <a class="btn btn-flat" href="#">Book now</a>
+      <h1 >Check out some other Ghosts</h1>
     </div>
 
     <div>
       <div class="cards">
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-          Sad Ghosts
+          <%= link_to "Sad Ghosts", ghosts_path %>
         </div>
 
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-          Happy Ghosts
+          <%= link_to "Happy Ghosts", ghosts_path %>
         </div>
 
         <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-          Weird Ghosts
+          <%= link_to "Weird Ghosts", ghosts_path %>
         </div>
       </div>
 
