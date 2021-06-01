@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Set Up Your Ghost Profile</h1>
+
+  <div>
+    <%= simple_form_for @ghost do |f| %>
+      <%= f.input :name %>
+      <%= f.input :category, :collection => %w[good friendly evil pranky helpful] %>
+      <%= f.input :description %>
+      <%= f.input :age %>
+      <%= f.input :rate %>
+      <%= f.input :location %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
