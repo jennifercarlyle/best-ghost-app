@@ -1,0 +1,40 @@
+.card-ghost {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-ghost > img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-ghost h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-ghost p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-ghost .card-ghost-infos {
+  padding: 16px;
+  margin: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-ghost-infos .card-ghost-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
