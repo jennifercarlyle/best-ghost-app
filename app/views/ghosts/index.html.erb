@@ -1,5 +1,14 @@
-<h1>List of Ghosts</h1>
+<div class="container">
+  <h1 class="p-3 text-center">Search for Ghosts</h1>
+  <div class="cards">
+  <% @ghosts.each do |ghost| %>
+    <%= link_to ghost_path(ghost), class: "text-decoration-none" do %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <p><%= ghost.name %></p>
+      </div>
+    <% end %>
+   <% end %>
+    </div>
+  </div>
+</div>
 
-<% @ghosts.each do |ghost| %>
-  <p><%= ghost.name %></p>
-<% end %>
