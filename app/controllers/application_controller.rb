@@ -1,8 +1,12 @@
 class ApplicationController < ActionController::Base
 <<<<<<< HEAD
+<<<<<<< HEAD
   before_action :authenticate_user!
 
 =======
+=======
+  before_action :authenticate_user!
+>>>>>>> master
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
