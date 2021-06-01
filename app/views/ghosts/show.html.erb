@@ -9,7 +9,7 @@
     <h1>Ghost</h1>
     <div class="card-ghost">
         <img src=https://images.unsplash.com/photo-1583638666708-5ba77a6f8bd1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Z2hvc3R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"/>
-        <a class="btn btn-flat" href="#">Book now</a>
+        <%= link_to "Book now", new_ghost_booking_path(@ghost), class:"btn btn-flat" %>
         <div class="card-ghost-infos">
       <div>
         <h2><%= @ghost.name %></h2>
