@@ -6,43 +6,49 @@
   </head>
 
   <body>
-    <h1>Ghost</h1>
-    <div class="card-ghost">
-        <img src=https://images.unsplash.com/photo-1583638666708-5ba77a6f8bd1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Z2hvc3R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"/>
-        <%= link_to "Book now", new_ghost_booking_path(@ghost), class:"btn btn-flat" %>
-        <div class="card-ghost-infos">
+    <div class="container ghost-corners">
+      <p class="subtitle">Your chosen ghost</p>
+      <h1 class="p-3 background text-color title line"><%= @ghost.name %></h1>
+      <div class="card-ghost">
+          <img class="ghost-img" src=https://images.unsplash.com/photo-1583638666708-5ba77a6f8bd1?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8Z2hvc3R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"/>
+          <%= link_to "Book now", new_ghost_booking_path(@ghost), class:"btn btn-flat btn-book" %>
+          <div class="card-ghost-infos">
+        <div>
+          <h1><%= @ghost.name %></h1>
+          <br>
+          <h2><%= @ghost.location %></h2>
+          <br>
+          <p><%= @ghost.description %></p>
+          <br>
+          <p> A little about me: Paragraph about Ghost here!</p>
+        </div>
+          <h2 class="card-ghost-pricing">£ <%= @ghost.rate %></h2>
+  <!--         <%= image_tag "ghost_avatar.jpeg", class: "card-ghost-user avatar-bordered", alt: "ghost avatar" %> -->
+          <!-- <img src="ghost_avatar.jpeg" class="card-ghost-user avatar-bordered" /> -->
+        </div>
+      </div>
+
+
       <div>
-        <h2><%= @ghost.name %></h2>
-        <h3><%= @ghost.location %></h3>
-        <p><%= @ghost.description %></p>
-        <p>Paragraph about Ghost here!</p>
-      </div>
-        <h2 class="card-ghost-pricing">£ <%= @ghost.rate %></h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-ghost-user avatar-bordered" />
-      </div>
-    </div>
-
-
-    <div>
-      <h1 >Check out some other Ghosts</h1>
-    </div>
-
-    <div>
-      <div class="cards">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-          <%= link_to "Sad Ghosts", ghosts_path %>
-        </div>
-
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/lunch.jpg)">
-          <%= link_to "Happy Ghosts", ghosts_path %>
-        </div>
-
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/dinner.jpg)">
-          <%= link_to "Weird Ghosts", ghosts_path %>
-        </div>
+        <h3 class="other-ghosts border-top-2 background text-color"> Looking for some other spooks?</h3>
       </div>
 
-    </div>
+      <div>
+        <div class="cards text-color ">
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?ghost,spooky)">
+            <%= link_to "Sad Ghosts", ghosts_path %>
+          </div>
+
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?ghost,spooky)">
+            <%= link_to "Happy Ghosts", ghosts_path %>
+          </div>
+
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?ghost,spooky)">
+            <%= link_to "Weird Ghosts", ghosts_path %>
+          </div>
+        </div>
+      </div>
+  </div>
 
 
     <div class="footer">
