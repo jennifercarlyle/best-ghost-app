@@ -1,8 +1,8 @@
 <div class="banner-profile" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/3993247/pexels-photo-3993247.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
   <div class="container">
     <h1><%= @user.name %></h1>
-    <div><%= link_to "Browse Ghosts", ghosts_path, class:"btn btn-flat" %></div>
-    <div><%= link_to "Signup as a Ghost", new_ghost_path, class: "btn btn-flat" %></div>
+    <%= link_to "Browse Ghosts", ghosts_path, class:"btn btn-flat" %>
+    <%= link_to "Signup as a Ghost", new_ghost_path, class: "btn btn-flat" %>
   </div>
 </div>
 

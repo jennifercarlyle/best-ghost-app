@@ -49,6 +49,14 @@
   margin-top: 8px;
 }
 
+.card-category a {
+  text-decoration: none;
+}
+
+.card-category:hover {
+  color: #9097a3;
+}
+
 .card-product .card-product-infos {
   padding: 16px;
 }
