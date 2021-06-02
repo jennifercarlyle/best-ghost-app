@@ -1,27 +1,47 @@
+<div class="banner-profile" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/3993247/pexels-photo-3993247.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+  <div class="container">
+    <h1><%= @user.name %></h1>
+    <div><%= link_to "Browse Ghosts", ghosts_path, class:"btn btn-flat" %></div>
+    <div><%= link_to "Signup as a Ghost", new_ghost_path, class: "btn btn-flat" %></div>
+  </div>
+</div>
+
 <div class="container">
-  <h1>My Profile</h1>
-
   <div>
-    <h3><%= @user.name %></h3>
-  </div>
-
-  <div>
-    <p>My Bookings:</p>
-      <% @user.bookings.each do |booking| %>
-      <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <h2>Ghost name</h2>
-          <p><%= booking.start_date %></p>
+    <h2>My Bookings:</h2>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="future-tab" data-toggle="tab" href="#future" role="tab" aria-controls="future" aria-selected="true">Upcoming</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="completed-tab" data-toggle="tab" href="#completed" role="tab" aria-controls="completed" aria-selected="false">Completed</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="future" role="tabpanel" aria-labelledby="future-tab">
+        <% @future_bookings.each do |booking| %>
+        <div class="card-product">
+          <img src="https://source.unsplash.com/1600x900/?ghost,spooky" />
+          <div class="card-product-infos">
+            <h2><%= booking.ghost.name %></h2>
+            <p><%= "Dates: #{booking.start_date} - #{booking.end_date}" %></p>
+            <p><%= "Total Cost: £#{booking.total_price}" %></p>
+          </div>
         </div>
+        <% end %>
       </div>
-      <% end %>
+      <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="completed-tab">
+        <% @completed_bookings.each do |booking| %>
+        <div class="card-product">
+          <img src="https://source.unsplash.com/1600x900/?ghost,spooky" />
+          <div class="card-product-infos">
+            <h2><%= booking.ghost.name %></h2>
+            <p><%= "Dates: #{booking.start_date} - #{booking.end_date}" %></p>
+            <p><%= "Total Cost: £#{booking.total_price}" %></p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-
-
-
-
-
-  <div><%= link_to "I'm a Ghost", new_ghost_path, class: "btn btn-primary" %> </div>
 </div>
