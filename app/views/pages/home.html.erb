@@ -1,13 +1,13 @@
 <div class="banner"  style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1583680599407-f73ab374fff4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2700&q=80);">
   <div class="container">
     <h1>Hire a ghost!</h1>
-    <p>“I’m heading to the ghostery store.”</p>
+    <p>All in good spirit</p>
   </div>
 </div>
 
 <div class="cards">
   <% @ghosts.each do |ghost| %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1509411273045-2920cee823be?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=925&q=80)">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1604098365091-4dc317db39cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80)">
     <%= link_to ghost.name, ghost_path(ghost) %>
   </div>
   <% end %>
