@@ -1,16 +1,16 @@
-<div class="container">
-  <h1>Set Up Your Ghost Profile</h1>
+<div class="container py-5 ghost-form">
+  <h1>Set Up Your <strong>Ghost</strong> Profile</h1>
 
-  <div>
+  <div class="ghost-form-content">
     <%= simple_form_for @ghost do |f| %>
       <%= f.input :name %>
-      <%= f.input :category, :collection => %w[good friendly evil pranky helpful] %>
+      <%= f.input :category, prompt: 'What kind of ghost are you?', :collection => %w[Friendly Humorous Terrifying Prankster Sexy Helpful] %>
       <%= f.input :description %>
-      <%= f.input :age %>
-      <%= f.input :rate %>
+      <%= f.input :age, placeholder: 'e.g. c.16th Century', input_html: { min: '0' } %>
+      <%= f.input :rate, input_html: { min: '0' } %>
       <%= f.input :location %>
       <%= f.input :photo, as: :file %>
-      <%= f.submit %>
+      <%= f.submit "Create Ghost!", :class => "create" %>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,36 @@
+.ghost-form, .booking-form {
+  color: black;
+  width: 600px;
+  // display: flexbox;
+}
+
+.ghost-form h1, .booking-form h1 {
+  color: black;
+  // font-size: 24px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.ghost-form-content, .booking-form-content {
+  padding: 40px 20px;
+}
+
+.create {
+  display: block;
+  background-color: black;
+  color: white;
+  border-style: 2px;
+  border-color: black;
+  border-radius: 8px;
+  padding: 10px 100px;
+  margin: 0 auto;
+  margin-top: 56px;
+}
+
+.create:hover {
+  background-color: #36332c;
+}
+
+.booking-form {
+  padding: 24px;
+}
