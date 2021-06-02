@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.ghost = @ghost
     if @booking.save
-      redirect_to ghost_path(@ghost)
+      redirect_to user_path(current_user)
     else
       render :new
     end
