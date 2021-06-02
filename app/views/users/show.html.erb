@@ -5,5 +5,23 @@
     <h3><%= @user.name %></h3>
   </div>
 
+  <div>
+    <p>My Bookings:</p>
+      <% @user.bookings.each do |booking| %>
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2>Ghost name</h2>
+          <p><%= booking.start_date %></p>
+        </div>
+      </div>
+      <% end %>
+  </div>
+
+
+
+
+
+
   <div><%= link_to "I'm a Ghost", new_ghost_path, class: "btn btn-primary" %> </div>
 </div>
