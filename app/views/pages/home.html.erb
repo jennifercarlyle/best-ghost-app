@@ -8,7 +8,7 @@
 <div class="cards">
   <% @ghosts.each do |ghost| %>
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1604098365091-4dc317db39cc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80)">
-    <%= link_to ghost.name, ghost_path(ghost) %>
+    <%= link_to ghost.name, ghost_path(ghost), :class => 'card-category' %>
   </div>
   <% end %>
 </div>
