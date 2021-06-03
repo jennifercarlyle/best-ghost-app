@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :bookings
   has_one :ghost
   has_many :ghosts, through: :bookings
+  has_many :reviews, through: :bookings
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
