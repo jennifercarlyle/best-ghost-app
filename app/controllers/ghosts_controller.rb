@@ -5,7 +5,8 @@ class GhostsController < ApplicationController
     @ghosts = Ghost.all
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @ghost = Ghost.new

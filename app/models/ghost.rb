@@ -10,4 +10,9 @@ class Ghost < ApplicationRecord
   validates :age, presence: true
   validates :rate, presence: true
   validates :location, presence: true
+  def average_rating
+    if reviews.length > 0
+    reviews.map { |e| e.rating }.sum / reviews.length.to_i
+    end
+  end
 end

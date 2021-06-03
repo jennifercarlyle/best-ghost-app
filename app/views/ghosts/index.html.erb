@@ -5,10 +5,12 @@
     <%= link_to ghost_path(ghost), class: "text-decoration-none" do %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?ghost)">
         <p><%= ghost.name %></p>
+        <% if ghost.average_rating %>
+          <p><%= '⭐️' * ghost.average_rating %></p>
+        <% end %>
       </div>
     <% end %>
    <% end %>
     </div>
   </div>
-</div>
 
