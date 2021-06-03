@@ -1,16 +1,33 @@
+<!-- <div class="container d-flex py-2"> -->
 <div class="container">
+  <div class="">
+    <%= form_tag ghosts_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a ghost"
+      %>
+      <%= submit_tag "Search", class: "btn btn-dark" %> <%= link_to "Clear", ghosts_path, class: "btn btn-dark" %>
+    <% end %>
+  </div>
+
   <h1 class="p-3 text-center font-weight-bold">Browse Ghosts</h1>
   <div class="cards">
   <% @ghosts.each do |ghost| %>
-    <%= link_to ghost_path(ghost), class: "text-decoration-none" do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?ghost)">
-        <p><%= ghost.name %></p>
-        <% if ghost.average_rating %>
+    <% if ghost.photo.attached? %>
+      <%= link_to ghost_path(ghost), class: "text-decoration-none" do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path ghost.photo.key, height: 300, crop: :fill %>')">
+          <p><%= ghost.name %></p>
+          <% if ghost.average_rating %>
           <p><%= '⭐️' * ghost.average_rating %></p>
         <% end %>
-      </div>
-    <% end %>
-   <% end %>
-    </div>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to ghost_path(ghost), class: "text-decoration-none" do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?ghost)">
+          <p><%= ghost.name %></p>
+        </div>
+      <% end %>
   </div>
-
+</div>
