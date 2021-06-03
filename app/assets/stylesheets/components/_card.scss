@@ -50,6 +50,19 @@
   margin-top: 8px;
 }
 
+.card-product-btn {
+  display: flex;
+  align-item: right;
+  align-items: center;
+}
+
+.card-product-review {
+  display: flex;
+  flex-direction: column;
+  font-style: italic;
+  align-items: flex-end;
+}
+
 .card-category {
   text-decoration: none;
 }
