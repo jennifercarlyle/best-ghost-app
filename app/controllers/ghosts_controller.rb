@@ -10,7 +10,8 @@ class GhostsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @ghost = Ghost.new
