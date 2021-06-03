@@ -3,9 +3,15 @@ class GhostsController < ApplicationController
 
   def index
     @ghosts = Ghost.all
+    if params[:query].present?
+      @ghosts = Ghost.search_by_name_and_category(params[:query])
+    else
+      @ghosts = Ghost.all
+    end
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @ghost = Ghost.new

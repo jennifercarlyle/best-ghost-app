@@ -34,11 +34,21 @@
         <% @completed_bookings.each do |booking| %>
         <div class="card-product">
           <img src="https://source.unsplash.com/1600x900/?ghost,spooky" />
-          <div class="card-product-infos">
-            <h2><%= booking.ghost.name %></h2>
-            <p><%= "Dates: #{booking.start_date} - #{booking.end_date}" %></p>
-            <p><%= "Total Cost: £#{booking.total_price}" %></p>
-            <%= link_to "Leave a Review", new_booking_review_path(booking), class: "btn btn-flat" %>
+          <div class="container d-flex justify-content-between">
+            <div class="card-product-infos">
+              <h2><%= booking.ghost.name %></h2>
+              <p><%= "Dates: #{booking.start_date} - #{booking.end_date}" %></p>
+              <p><%= "Total Cost: £#{booking.total_price}" %></p>
+            </div>
+            <% if booking.review.present? %>
+              <div class="card-product-review">
+                <p><%= "Your Review:" %></p>
+                <p><%= '⭐️' * booking.review.rating %></p>
+                <p><%= booking.review.content %></p>
+              </div>
+            <% else %>
+              <div class="card-product-btn"><%= link_to "Leave a Review", new_booking_review_path(booking), class: "btn btn-flat" %></div>
+            <% end %>
           </div>
         </div>
         <% end %>

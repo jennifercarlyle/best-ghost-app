@@ -9,9 +9,10 @@
 }
 
 .card-ghost > img {
-  height: 664px;
+  height: 500px;
   width: 100%;
   z-index: 0;
+  object-fit: cover;
   // margin-left: 32px;
   // margin-right: 32px;
 }

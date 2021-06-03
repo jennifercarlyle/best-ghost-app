@@ -1,10 +1,10 @@
 <div class="container">
-  <h1><%= "How was your experience with your Ghost?" %></h1>
+  <h1><%= "How was your experience with #{@booking.ghost.name}?" %></h1>
 
   <div class="booking-form-content">
     <%= simple_form_for [ @booking, @review ] do |f| %>
       <%= f.input :content %>
-      <%= f.input :rating, input_html: { min: '0' } %>
+      <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
       <%= f.submit "Submit Request", :class => "create"%>
     <% end %>
   </div>
