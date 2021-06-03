@@ -1,4 +1,16 @@
+<!-- <div class="container d-flex py-2"> -->
 <div class="container">
+  <%= form_tag ghosts_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a ghost"
+    %>
+    <%= submit_tag "Search", class: "btn btn-dark" %>
+  <% end %>
+
+
+
   <h1 class="p-3 text-center font-weight-bold">Browse Ghosts</h1>
   <div class="cards">
   <% @ghosts.each do |ghost| %>
@@ -11,4 +23,3 @@
     </div>
   </div>
 </div>
-
