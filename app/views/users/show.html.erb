@@ -38,6 +38,7 @@
             <h2><%= booking.ghost.name %></h2>
             <p><%= "Dates: #{booking.start_date} - #{booking.end_date}" %></p>
             <p><%= "Total Cost: £#{booking.total_price}" %></p>
+            <%= link_to "Leave a Review", new_booking_review_path(booking), class: "btn btn-flat" %>
           </div>
         </div>
         <% end %>

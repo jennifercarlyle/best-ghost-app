@@ -1,0 +1,11 @@
+<div class="container">
+  <h1><%= "How was your experience with your Ghost?" %></h1>
+
+  <div class="booking-form-content">
+    <%= simple_form_for [ @booking, @review ] do |f| %>
+      <%= f.input :content %>
+      <%= f.input :rating, input_html: { min: '0' } %>
+      <%= f.submit "Submit Request", :class => "create"%>
+    <% end %>
+  </div>
+</div>
