@@ -14,10 +14,18 @@
   <h1 class="p-3 text-center font-weight-bold">Browse Ghosts</h1>
   <div class="cards">
   <% @ghosts.each do |ghost| %>
-    <%= link_to ghost_path(ghost), class: "text-decoration-none" do %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?ghost)">
-        <p><%= ghost.name %></p>
-      </div>
+    <% if ghost.photo.attached? %>
+      <%= link_to ghost_path(ghost), class: "text-decoration-none" do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path ghost.photo.key, height: 300, crop: :fill %>')">
+          <p><%= ghost.name %></p>
+        </div>
+      <% end %>
+    <% else %>
+      <%= link_to ghost_path(ghost), class: "text-decoration-none" do %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?ghost)">
+          <p><%= ghost.name %></p>
+        </div>
+      <% end %>
     <% end %>
    <% end %>
     </div>
