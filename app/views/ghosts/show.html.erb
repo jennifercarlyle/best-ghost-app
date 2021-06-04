@@ -19,7 +19,7 @@
         <div>
           <h1><%= @ghost.name %></h1>
           <br>
-           <p><%= '⭐️' * @ghost.average_rating %></p>
+           <p><%= "#{'⭐️' * @ghost.average_rating} (#{pluralize(@ghost.reviews.length, 'review')})"%></p>
           <br>
           <h2><%= @ghost.location %></h2>
           <br>
@@ -29,34 +29,25 @@
         </div>
       </div>
 
-
-
- <div class="d-flex justify-content-center">
-      <div class="content text-center">
-        <div class="rating-text"> <span><%= @ghost.reviews.length %> reviews</span> </div>
-        <div class="ratings"> <span class="product-rating"><%= @ghost.average_rating %></span><span>/5</span>
-           <p><%= '⭐️' * @ghost.average_rating %></p>
-        </div>
+      <div>
+        <h3 class="other-ghosts border-top-2 background text-color"> Reviews</h3>
       </div>
-  </div>
-<%=  %>
-  <div class="card-ghost-infos">
-    <% @ghost.reviews.each do |review| %>
-    <h3><%= review.booking.user.name %></h3>
-    <p><%= review.booking.created_at %></p>
-    <p><%= review.content %></p>
-    <h3><%= '⭐️' * review.rating %></h3>
-    <% end %>
-  </div>
 
-
+      <% @ghost.reviews.each do |review| %>
+        <div class="card-product-reviews">
+          <div class="card-ghost-infos">
+            <h5><%= '⭐️' * review.rating %></h5>
+            <p style= "font-style: italic;"><%= "#{review.content} -#{review.booking.user.name} (#{review.booking.created_at.strftime("%b. %Y")})" %></p>
+          </div>
+        </div>
+      <% end %>
 
       <div>
         <h3 class="other-ghosts border-top-2 background text-color"> Looking for some other spooks?</h3>
       </div>
 
       <div>
-        <div class="cards text-color ">
+        <div class="cards">
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/1600x900/?ghost,spooky)">
             <% if Rails.env.production? %>
               <%= link_to "Sexy Ghosts", "http://best-ghost-app.herokuapp.com/ghosts?query=sexy&commit=Search" %>
@@ -82,20 +73,5 @@
           </div>
         </div>
       </div>
-
-
-    <div class="footer">
-      <div class="footer-links">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-      </div>
-      <div class="footer-copyright">
-      </div>
-   </div>
-
-
   </body>
 </html>
