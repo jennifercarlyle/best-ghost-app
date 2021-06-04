@@ -15,7 +15,9 @@ class Ghost < ApplicationRecord
 
   def average_rating
     if reviews.length > 0
-    reviews.map { |e| e.rating }.sum / reviews.length.to_i
+    reviews.map { |e| e.rating }.sum / reviews.length.to_f
+    else
+      0
     end
   end
 
