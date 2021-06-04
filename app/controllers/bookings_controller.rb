@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.ghost = @ghost
+    @booking.total_price = @ghost.rate * ((@booking.end_date - @booking.start_date).to_i)
     if @booking.save
       redirect_to user_path(current_user)
     else
@@ -19,7 +20,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :total_price)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 
   def set_ghost
