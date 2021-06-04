@@ -1,12 +1,13 @@
-<div class="banner-profile" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/3993247/pexels-photo-3993247.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
-  <div class="container">
-    <h1><%= @user.name %></h1>
-    <%= link_to "Browse Ghosts", ghosts_path, class:"btn btn-flat" %>
-    <%= link_to "Signup as a Ghost", new_ghost_path, class: "btn btn-flat" %>
+<div class="">
+  <div class="banner-profile" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/3993247/pexels-photo-3993247.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+    <div class="container">
+      <h1 class="pb-3">Welcome <%= @user.name %> to your profile page</h1>
+      <%= link_to "Browse Ghosts", ghosts_path, class:"btn btn-flat" %>
+      <%= link_to "Signup as a Ghost", new_ghost_path, class: "btn btn-flat" %>
+    </div>
   </div>
-</div>
 
-<div class="container">
+<div class="container booking-form">
   <div>
     <h2>My Bookings:</h2>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -21,7 +22,12 @@
       <div class="tab-pane fade show active" id="future" role="tabpanel" aria-labelledby="future-tab">
         <% @future_bookings.each do |booking| %>
         <div class="card-product">
-          <img src="https://source.unsplash.com/1600x900/?ghost,spooky" />
+          <% if booking.ghost.photo.attached? %>
+            <%= cl_image_tag booking.ghost.photo.key, crop: :fill %>
+          <% else %>
+            <img src="https://source.unsplash.com/1600x900/?ghost,spooky" />
+          <% end %>
+
           <div class="card-product-infos">
             <h2><%= booking.ghost.name %></h2>
             <p><%= "Dates: #{booking.start_date} - #{booking.end_date}" %></p>
@@ -33,25 +39,44 @@
       <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="completed-tab">
         <% @completed_bookings.each do |booking| %>
         <div class="card-product">
-          <img src="https://source.unsplash.com/1600x900/?ghost,spooky" />
+          <% if booking.ghost.photo.attached? %>
+            <%= cl_image_tag booking.ghost.photo.key, crop: :fill %>
+          <% else %>
+            <img src="https://source.unsplash.com/1600x900/?ghost,spooky" />
+          <% end %>
           <div class="container d-flex justify-content-between">
+
             <div class="card-product-infos">
               <h2><%= booking.ghost.name %></h2>
               <p><%= "Dates: #{booking.start_date} - #{booking.end_date}" %></p>
               <p><%= "Total Cost: £#{booking.total_price}" %></p>
             </div>
-            <% if booking.review.present? %>
-              <div class="card-product-review">
-                <p><%= "Your Review:" %></p>
-                <p><%= '⭐️' * booking.review.rating %></p>
-                <p><%= booking.review.content %></p>
-              </div>
-            <% else %>
-              <div class="card-product-btn"><%= link_to "Leave a Review", new_booking_review_path(booking), class: "btn btn-flat" %></div>
-            <% end %>
           </div>
+          <% end %>
         </div>
-        <% end %>
+        <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="completed-tab">
+          <% @completed_bookings.each do |booking| %>
+          <div class="card-product">
+            <img src="https://source.unsplash.com/1600x900/?ghost,spooky" />
+            <div class="container d-flex justify-content-between">
+              <div class="card-product-infos">
+                <h2><%= booking.ghost.name %></h2>
+                <p><%= "Dates: #{booking.start_date} - #{booking.end_date}" %></p>
+                <p><%= "Total Cost: £#{booking.total_price}" %></p>
+              </div>
+              <% if booking.review.present? %>
+                <div class="card-product-review">
+                  <p><%= "Your Review:" %></p>
+                  <p><%= '⭐️' * booking.review.rating %></p>
+                  <p><%= booking.review.content %></p>
+                </div>
+              <% else %>
+                <div class="card-product-btn"><%= link_to "Leave a Review", new_booking_review_path(booking), class: "btn btn-flat" %></div>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
