@@ -19,9 +19,7 @@
       <%= link_to ghost_path(ghost), class: "text-decoration-none" do %>
         <div class="card-category ghost-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path ghost.photo.key, height: 300, crop: :fill %>')">
           <p class="ghost-name"><%= ghost.name %></p>
-          <h6 class="ghost-description"><%= ghost.description %></h6>
-        </div>
-        <div>
+          <h6 class="ghost-description text-center"><%= ghost.description %></h6>
         </div>
       <% end %>
     <% else %>
