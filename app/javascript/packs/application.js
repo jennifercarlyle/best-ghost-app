@@ -35,3 +35,5 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   // initSelect2();
 });
+
+import "controllers"

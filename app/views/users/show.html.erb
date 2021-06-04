@@ -7,22 +7,45 @@
     </div>
   </div>
 
-  <div class="container booking-form">
-    <div>
-      <h2> My Bookings: </h2>
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" id="future-tab" data-toggle="tab" href="#future" role="tab" aria-controls="future" aria-selected="true">Upcoming</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" id="completed-tab" data-toggle="tab" href="#completed" role="tab" aria-controls="completed" aria-selected="false">Completed</a>
-        </li>
-      </ul>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="future" role="tabpanel" aria-labelledby="future-tab">
-          <% @future_bookings.each do |booking| %>
-          <div class="card-product">
+<div class="container booking-form">
+  <div>
+    <h2>My Bookings:</h2>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="future-tab" data-toggle="tab" href="#future" role="tab" aria-controls="future" aria-selected="true">Upcoming</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="completed-tab" data-toggle="tab" href="#completed" role="tab" aria-controls="completed" aria-selected="false">Completed</a>
+      </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="future" role="tabpanel" aria-labelledby="future-tab">
+        <% @future_bookings.each do |booking| %>
+        <div class="card-product">
+          <% if booking.ghost.photo.attached? %>
+            <%= cl_image_tag booking.ghost.photo.key, crop: :fill %>
+          <% else %>
             <img src="https://source.unsplash.com/1600x900/?ghost,spooky" />
+          <% end %>
+
+          <div class="card-product-infos">
+            <h2><%= booking.ghost.name %></h2>
+            <p><%= "Dates: #{booking.start_date} - #{booking.end_date}" %></p>
+            <p><%= "Total Cost: £#{booking.total_price}" %></p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <div class="tab-pane fade" id="completed" role="tabpanel" aria-labelledby="completed-tab">
+        <% @completed_bookings.each do |booking| %>
+        <div class="card-product">
+          <% if booking.ghost.photo.attached? %>
+            <%= cl_image_tag booking.ghost.photo.key, crop: :fill %>
+          <% else %>
+            <img src="https://source.unsplash.com/1600x900/?ghost,spooky" />
+          <% end %>
+          <div class="container d-flex justify-content-between">
+
             <div class="card-product-infos">
               <h2><%= booking.ghost.name %></h2>
               <p><%= "Dates: #{booking.start_date} - #{booking.end_date}" %></p>

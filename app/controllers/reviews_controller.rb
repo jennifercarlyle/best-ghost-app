@@ -9,7 +9,8 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = @booking
     if @review.save!
-      redirect_to ghost_path(@booking.ghost)
+      # redirect_to ghost_path(@booking.ghost)
+      redirect_to user_path(current_user)
     else
       render :new
     end
