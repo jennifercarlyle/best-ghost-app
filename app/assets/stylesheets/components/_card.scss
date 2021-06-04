@@ -92,6 +92,25 @@
   padding: 16px;
 }
 
+.ghost-description {
+  display: none;
+}
+
+.ghost-image:hover {
+  p {
+    display: none;
+  }
+  h6 {
+    display: block;
+    color: white;
+    width: 200px;
+  }
+}
+
+
+
+
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
