@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def show
     set_user
-    @future_bookings = Booking.where("start_date >= ? ", Date.today)
-    @completed_bookings = Booking.where("end_date <= ? ", Date.today)
+    @future_bookings = current_user.bookings.where("start_date >= ? ", Date.today)
+    @completed_bookings = current_user.bookings.where("end_date <= ? ", Date.today)
   end
 
   private
