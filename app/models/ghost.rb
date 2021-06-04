@@ -17,7 +17,6 @@ class Ghost < ApplicationRecord
     if reviews.length > 0
     reviews.map { |e| e.rating }.sum / reviews.length.to_f
     else
-      0
     end
   end
 
